@@ -1,0 +1,35 @@
+.burger-top
+{
+  width: 100%;
+  height: 100px;
+  background-color: rgb(242, 178, 58);
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  margin-bottom: 15px;
+}
+.burger-bottom
+{
+  width: 100%;
+  height: 100px;
+  background-color: rgb(242, 178, 58);
+  border-bottom-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+  margin-top: 15px;
+}
+
+.burger-meat 
+{
+  width: 100%;
+  height: 40px;
+  background-color: rgb(61, 60, 13);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.burger-salad 
+{
+  width: 100%;
+  height: 40px;
+  background-color: rgb(97, 195, 59);
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
