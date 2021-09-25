@@ -10,6 +10,7 @@ import {
 import Home from './Pages/Home';
 import About from './Pages/About';
 import Demand from './Pages/Demand';
+import DemandDetails from './Pages/DemandDetails';
 
 export default function App() {
 
@@ -48,9 +49,15 @@ export default function App() {
                     <Route path="/demand">
                         <Demand />
                     </Route>
+
+                    <Route path="/demand/:id/:title">
+                        <DemandDetails />
+                    </Route>
+
                     <Route path="/">
                         <Home />
                     </Route>
+
                 </Switch>
             </div>
         </Router>
