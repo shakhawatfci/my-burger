@@ -35,7 +35,7 @@ export default function Demand() {
 
                                     </div>
                                     <div className="postDetails">
-                                        <Link to="demand" params={{ id: demand.id, title: demand.slug }} style={{ textDecoration: 'none' }}>
+                                        <Link to={`demand/${demand.id}/${demand.slug}`} params={{ id: demand.id, title: demand.slug }} style={{ textDecoration: 'none' }}>
                                             <img className="img-responsive img-fluid img-thumbnail"
                                                 src={demand.image_one_big}
 

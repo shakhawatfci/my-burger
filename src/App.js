@@ -40,21 +40,21 @@ export default function App() {
                 <Switch>
 
 
-                    <Route path="/about">
+                    <Route exact path="/about">
                         <About />
                     </Route>
                     {/* <Route path="/users">
                         <Users />
                     </Route> */}
-                    <Route path="/demand">
+                    <Route exact path="/demand">
                         <Demand />
                     </Route>
 
-                    <Route path="/demand/:id/:title">
+                    <Route exact path="/demand/:id/:title">
                         <DemandDetails />
                     </Route>
 
-                    <Route path="/">
+                    <Route exact path="/">
                         <Home />
                     </Route>
 

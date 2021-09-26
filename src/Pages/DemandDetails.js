@@ -1,8 +1,12 @@
+import { useParams } from 'react-router-dom';
+
 function DemandDetails() {
+    const { id, title } = useParams();
+
     return (
         <div className="container">
             <div className="row">
-                <h3>Hello Demand</h3>
+                <h3>Hello Demand {title}</h3>
             </div>
         </div>
     )
