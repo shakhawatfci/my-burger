@@ -6,7 +6,7 @@ function DemandDetails() {
     return (
         <div className="container">
             <div className="row">
-                <h3>Hello Demand {title}</h3>
+                <h3>Hello Demand {id} {title}</h3>
             </div>
         </div>
     )
