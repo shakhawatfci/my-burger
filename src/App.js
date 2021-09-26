@@ -2,15 +2,12 @@ import './App.css';
 import React from "react";
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
     Link
 } from "react-router-dom";
 
-import Home from './Pages/Home';
-import About from './Pages/About';
-import Demand from './Pages/Demand';
-import DemandDetails from './Pages/DemandDetails';
+import Routes from './router/index';
+
+
 
 export default function App() {
 
@@ -37,28 +34,8 @@ export default function App() {
 
                 {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-                <Switch>
-
-
-                    <Route exact path="/about">
-                        <About />
-                    </Route>
-                    {/* <Route path="/users">
-                        <Users />
-                    </Route> */}
-                    <Route exact path="/demand">
-                        <Demand />
-                    </Route>
-
-                    <Route exact path="/demand/:id/:title">
-                        <DemandDetails />
-                    </Route>
-
-                    <Route exact path="/">
-                        <Home />
-                    </Route>
-
-                </Switch>
+                {/* React Switch */}
+                <Routes />
             </div>
         </Router>
     );
