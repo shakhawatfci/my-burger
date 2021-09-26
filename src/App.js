@@ -25,7 +25,10 @@ export default function App() {
                                     <Link to="/about">About</Link>
                                 </li>
                                 <li>
-                                    <Link to="/demand">Demand</Link>
+                                    <Link to="/demand">Visit Demand</Link>
+                                </li>
+                                <li>
+                                    <Link to="/post-demand">New Demand</Link>
                                 </li>
                             </ul>
                         </nav>
@@ -34,7 +37,7 @@ export default function App() {
 
                 {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-                {/* React Switch */}
+                {/* React router  Switch from separet router file  */}
                 <Routes />
             </div>
         </Router>

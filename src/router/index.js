@@ -1,12 +1,13 @@
-import React from 'react';
+
 import {
     Switch,
     Route,
 } from "react-router-dom";
-import Home from './Pages/Home';
-import About from './Pages/About';
-import Demand from './Pages/Demand';
-import DemandDetails from './Pages/DemandDetails';
+import Home from '../Pages/Home';
+import About from '../Pages/About';
+import Demand from '../Pages/Demand';
+import DemandDetails from '../Pages/DemandDetails';
+import PostDemand from '../Pages/PostDemand';
 
 export default function Routes() {
 
@@ -19,6 +20,9 @@ export default function Routes() {
 
             <Route exact path="/demand">
                 <Demand />
+            </Route>
+            <Route exact path="/post-demand">
+                <PostDemand />
             </Route>
 
             <Route exact path="/demand/:id/:title">
