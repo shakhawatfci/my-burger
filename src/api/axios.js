@@ -1,6 +1,9 @@
 import axios from 'axios';
 
 export default axios.create({
-    baseURL: 'https://api.bido.live/api/v1/'
+    baseURL: 'https://api.bido.live/api/v1/',
+    // headers: {
+    //     'Authorization': `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNGNiYTg5OTRlNGY1MjI5Y2Q2YmRhZWJlNGQxYmViNmZlMmU2YWJlMmEyMmQ4NzFjZmI2ZDVlYjNlNTgwMDM4ZDU4MjM1YjdiYTc4N2Q5YzgiLCJpYXQiOiIxNjA5MDU0Mjg2LjM5MTIxMiIsIm5iZiI6IjE2MDkwNTQyODYuMzkxMjE2IiwiZXhwIjoiMTY0MDU5MDI4Ni4zMzA0MDUiLCJzdWIiOiIxMDAyIiwic2NvcGVzIjpbXX0.l5_GlIasGFucPRzM90HgTw0dQSpANPU55OpPtlOrGGxprsAhx1tCSyugTTnAyUbdZK05wZ9AYg6moAxssgPhV6P_Tikl-Lqr8r_RyeqB926Rh_N8GwU2z0JEjxsWtJHT5OX4FHqTBzm43T2lMNcabmvUze0FWyO4NZjJXK_ymgw8DG1UHSxaTvSDQX3sVyZ3mGrPqSapmDl3i6ZkqRwseuSNU-_6QBvntUq5oiRo0EEpKTx4JZMkDu3ySYItlTvP7SdnEFUt_w_Z28Bqyc4-O3A9CxMxgnffDbx_XJSJ2xBjh7BCLHr-VMChC79hjk1vF-h-tYSV-4lMTrldRK4cBh9gL_4EnaDtIYCrEPd8A9JkBJKX5YIgIl90SpqC-zMJn9DVRatssZ35a-Ghw53bFXjrZ4HRBKNRdSfHrSICST_2WO6El3-sbM7QZNdyAsrmdmGXywcbogRD3XeeNnxyLXRAAq5iacvgI8Ebv6fHsLTcGyOHz-6Bytdfef5D0bTecw_6PihGlca66AcBK7MS27CCh-mg5qic4kp3qYm21-EWsIt7HuI-WpRrQG_b2gQAE0jtGFll-QZ4xYroqwxc2CeisvGFI9UXt91szai8Vxvjcy8jReWEqwyj4qkUO-GfCoduoMIEAu1tv_jOXKMqVL-9q5n_0jCH6wvbVo0OETw`
+    // }
 });
 
