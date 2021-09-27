@@ -81,7 +81,7 @@ export default function PostDemand() {
             .then(response => {
                 setUnit(response.data);
             });
-        let currentCategory = categories.find(cat => cat.id == category_id);
+        let currentCategory = categories.find(cat => cat.id === category_id);
         setForm({ ...form, category: currentCategory });
         setForm({ ...form, quantity_unit: '' })
 
