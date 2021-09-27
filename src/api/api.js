@@ -6,6 +6,6 @@ export async function getDemands(pageNumber = 1) {
 }
 
 export async function getCategory() {
-    const api = await axios.get('category-list?no_paginate=yes');
-    return await api.data;
+    const api = await axios.get('category-list?no_pagination=yes');
+    return await api.data.data;
 }

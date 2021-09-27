@@ -6,7 +6,7 @@ import { getCategory } from "../api/api";
 export default function PostDemand() {
     const [form, setForm] = useState({
         title: '',
-        budget_type: false,
+        budget_type: true,
         quantity: '',
         quantity_unit: '',
         category: '',
@@ -22,6 +22,7 @@ export default function PostDemand() {
         image_three_name: '',
     });
     const [categories, setCategories] = useState([]);
+    const [quantity_unit, setUnit] = useState([]);
 
     async function getCat() {
         let data = await getCategory();
@@ -31,7 +32,6 @@ export default function PostDemand() {
     useEffect(() => {
         getCat();
         return () => {
-            // cleanup
         }
     }, [])
 
@@ -63,7 +63,7 @@ export default function PostDemand() {
         let reader = new FileReader();
         reader.onload = (e) => {
             // form.image_one = e.target.result;
-            setForm({ image_one: e.target.result })
+            setForm({ ...form, image_one: e.target.result })
             upLoadImageOneServer();
         };
         reader.readAsDataURL(file);
@@ -71,6 +71,19 @@ export default function PostDemand() {
 
     function handleSubmit(e) {
         e.preventDefault();
+
+    }
+
+    function onCategoryChange(e) {
+        let category_id = e.target.value;
+
+        axios.get(`category-unit/${category_id}`)
+            .then(response => {
+                setUnit(response.data);
+            });
+        let currentCategory = categories.find(cat => cat.id == category_id);
+        setForm({ ...form, category: currentCategory });
+        setForm({ ...form, quantity_unit: '' })
 
     }
     return (
@@ -87,8 +100,53 @@ export default function PostDemand() {
                         <div className="form-group mt-2">
                             <p>Post Title</p>
                             <input type="text" value={form.title} className="form-control"
-                                onChange={(e) => setForm({ title: e.target.value })} />
+                                onChange={(e) => setForm({ ...form, title: e.target.value })} />
                         </div>
+                        <div className="form-group mt-2">
+                            <p>Select Category</p>
+                            <select className="form-control" onChange={onCategoryChange}>
+                                <option value="">Select A Category</option>
+
+                                {categories.map((category) => {
+                                    return <option key={category.id} value={category.id}>{category.name}</option>
+                                })}
+                            </select>
+
+                        </div>
+                        <div className="form-group mt-2">
+                            <p>Quantity</p>
+                            <input type="number" value={form.quantity} className="form-control"
+                                onChange={(e) => setForm({ ...form, quantity: e.target.value })} />
+                        </div>
+                        <div className="form-group mt-2">
+                            <p>Select Unit</p>
+                            <select className="form-control" onChange={(e) => setForm({ ...form, quantity_unit: e.target.value })}>
+                                <option value="">Select A Unit</option>
+
+                                {quantity_unit.map((value) => {
+                                    return <option key={value.id} value={value.id}>{form.quantity} {value.name}</option>
+                                })}
+                            </select>
+
+                        </div>
+
+                        <div className="form-group">
+                            <p>Budget</p>
+                            <button onClick={() => setForm({ ...form, budget_type: !form.budget_type })} className={`btn ${form.budget_type ? "btn-success" : "btn-danger"}`}>
+                                {form.budget_type ? "Yes" : "No"}
+                            </button>
+                        </div>
+
+                        {form.budget_type && <div className="form-group mt-2">
+                            <p>Minimum Budget</p>
+                            <input type="number" value={form.minimum_budget} className="form-control"
+                                onChange={(e) => setForm({ ...form, minimum_budget: e.target.value })} />
+                        </div>}
+                        {form.budget_type && <div className="form-group mt-2">
+                            <p>Maximum Budget</p>
+                            <input type="number" value={form.maximum_budget} className="form-control"
+                                onChange={(e) => setForm({ ...form, maximum_budget: e.target.value })} />
+                        </div>}
                     </form>
                 </div>
             </div>
