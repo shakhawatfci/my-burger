@@ -10,7 +10,7 @@ export default function SingleDemand({ demand }) {
             <div className="postDetails">
                 <Link to={`demand/${demand.id}/${demand.slug}`} params={{ id: demand.id, title: demand.slug }} style={{ textDecoration: 'none' }}>
                     <img className="img-responsive img-fluid img-thumbnail"
-                        src={demand.image_one_big}
+                        src={demand.image_one_big ? demand.image_one_big : demand.default_big_image}
 
                         alt="cherry" />
                     <h3 style={{ color: 'green' }}>{demand.title}</h3>

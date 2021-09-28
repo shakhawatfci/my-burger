@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "../api/axios";
 import { getCategory } from "../api/api";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 
 export default function PostDemand() {
@@ -11,7 +14,7 @@ export default function PostDemand() {
         quantity_unit: '',
         category: '',
         description: '',
-        expire_dte: '',
+        expire_date: '',
         minimum_budget: 0,
         maximum_budget: 0,
         image_one: '',
@@ -30,13 +33,15 @@ export default function PostDemand() {
     }
 
     useEffect(() => {
+        document.title = 'Post a Demand';
         getCat();
         return () => {
         }
     }, [])
 
     function upLoadImageOneServer() {
-        let imageForm = { image_type: "one", image: form.image_one };
+        const imageForm = { image_type: "one", image: form.image_one };
+        console.log(imageForm);
         axios.post("/image-upload", imageForm)
             .then((response) => {
                 if (response.status === "success") {
@@ -147,9 +152,24 @@ export default function PostDemand() {
                             <input type="number" value={form.maximum_budget} className="form-control"
                                 onChange={(e) => setForm({ ...form, maximum_budget: e.target.value })} />
                         </div>}
+
+                        <div className="form-group">
+                            <p>Description</p>
+                            <textarea className="form-control" value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })}></textarea>
+                        </div>
+
+                        <div className="form-group">
+                            <p>Epire Date</p>
+                            <DatePicker locale="bn" dateFormat="yyyy-mm-dd" className="form-control" selected={form.expire_date} onChange={(date) => setForm({ ...form, expire_date: date })} />
+                        </div>
+                        <div className="form-group">
+
+                            <button type="submit" className="btn btn-primary mt-2">Save</button>
+                        </div>
                     </form>
                 </div>
             </div>
         </div>
     )
 }
+
